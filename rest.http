@@ -1,0 +1,5 @@
+### url
+@urlLink=http://localhost:8000
+
+### GET post to do
+GET {{urlLink}}
