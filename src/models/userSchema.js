@@ -6,11 +6,6 @@ const dbSchema = mongoose.Schema(
       type: String,
       require: true,
     },
-    gender: {
-      type: String,
-      require: true,
-      enum: ["male", "female"],
-    },
     email: {
       type: String,
       require: true,
