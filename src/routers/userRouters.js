@@ -1,11 +1,13 @@
 import express from "express";
 import { insertUser } from "../models/userModel.js";
+import { pwdHashEncrypt } from "../../utils/pwdHashEncryption.js";
 
 const userRouter = express();
 
 //user Signup
 userRouter.post("/signup", async (req, res) => {
   try {
+    req.body.password = pwdHashEncrypt(req.body.password);
     const result = await insertUser(req.body);
     result?._id
       ? res.json({

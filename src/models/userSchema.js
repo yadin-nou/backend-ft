@@ -15,6 +15,7 @@ const dbSchema = mongoose.Schema(
       type: String,
       require: true,
       unique: true,
+      index: 1,
     },
     password: {
       type: String,
