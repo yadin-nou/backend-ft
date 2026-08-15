@@ -1,16 +1,21 @@
 import express from "express";
+import { insertUser } from "../models/userModel.js";
 
 const userRouter = express();
 
 //user Signup
-userRouter.post("/signup", (req, res) => {
+userRouter.post("/signup", async (req, res) => {
   try {
-    console.log(req.body);
-    res.json({
-      status: "success",
-      message: "POST TO DO",
-      users: req.body,
-    });
+    const result = await insertUser(req.body);
+    result?._id
+      ? res.json({
+          status: "success",
+          message: "Account has been created, you can login now!",
+        })
+      : res.json({
+          status: "error",
+          message: error.message,
+        });
   } catch (error) {
     res.json({
       status: "error",

@@ -13,7 +13,8 @@ POST {{urlLink}}signup
 Content-Type: application/json
 
 {
-    "id":102,
-    "username":"nouyadin",
-    "email":"nouyadin@gmail.com"
+    "name":"nouyadin",
+    "email":"nouyadin@gmail.com",
+    "gender":"male",
+    "password":"12345"
 }
