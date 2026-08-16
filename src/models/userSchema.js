@@ -4,17 +4,17 @@ const dbSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: true,
     },
     email: {
       type: String,
-      require: true,
       unique: true,
+      required: true,
       index: 1,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
   },
   { timestamps: true },

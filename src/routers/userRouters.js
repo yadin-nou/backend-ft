@@ -8,7 +8,7 @@ const userRouter = express();
 userRouter.post("/signup", async (req, res) => {
   try {
     req.body.password = pwdHashEncrypt(req.body.password);
-    console.log(req.body, " userRouter.js");
+    // console.log(req.body, " userRouter.js");
     const result = await insertUser(req.body);
     result?._id
       ? res.json({
@@ -20,10 +20,15 @@ userRouter.post("/signup", async (req, res) => {
           message: error.message,
         });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    error.code === 11000
+      ? res.json({
+          status: "error",
+          message: "Your email is exist! Please try again later",
+        })
+      : res.json({
+          status: "error",
+          message: error.message,
+        });
   }
 });
 //user login
