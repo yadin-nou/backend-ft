@@ -8,6 +8,7 @@ const userRouter = express();
 userRouter.post("/signup", async (req, res) => {
   try {
     req.body.password = pwdHashEncrypt(req.body.password);
+    console.log(req.body, " userRouter.js");
     const result = await insertUser(req.body);
     result?._id
       ? res.json({
