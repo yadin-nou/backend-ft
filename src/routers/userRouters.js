@@ -32,6 +32,20 @@ userRouter.post("/signup", async (req, res) => {
   }
 });
 //user login
+userRouter.get("/login", (req, res) => {
+  try {
+    console.log(req.body, " body");
+    res.json({
+      status: "success",
+      message: "GET TO DO",
+    });
+  } catch (error) {
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
+});
 //user profile
 
 userRouter.get("/", (req, res) => {
