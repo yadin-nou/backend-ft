@@ -111,6 +111,17 @@ To set up this project in your device locally, please follow the steps:
 
 ## Usage
 
+- Postman for tesing
+- REST extention rest.http
+
+## API Endpoints
+
+    List all the api Endpoint you are going to have
+
+## Enviroment Variables
+
+Create a .env file in the root fo your project and add the following environment variables:
+
 ## Project Structure
 
 ```

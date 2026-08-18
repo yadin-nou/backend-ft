@@ -1,6 +1,6 @@
 import express from "express";
-import { insertUser } from "../models/userModel.js";
-import { pwdHashEncrypt } from "../../utils/pwdHashEncryption.js";
+import { insertUser, loginUserByEmail } from "../models/userModel.js";
+import { pwdHashEncrypt, pwdMatching } from "../../utils/pwdHashEncryption.js";
 
 const userRouter = express();
 
@@ -32,15 +32,34 @@ userRouter.post("/signup", async (req, res) => {
   }
 });
 //user login
-userRouter.post("/login", (req, res) => {
+userRouter.post("/login", async (req, res) => {
   try {
+    //recieve email and password
     console.log(req.body, " body");
-    res.json({
-      status: "success",
-      message: "Login success",
+    const { email, password } = req.body;
+    if (email && password) {
+      //check user by email from db
+      const user = await loginUserByEmail(email);
+      //compare password
+      const isMatch = pwdMatching(password, user.password);
+      if (isMatch) {
+        //set password ot undfined before response to the client
+        user.password = undefined;
+        res.status(201).json({
+          user,
+          status: "success",
+          message: "Login success",
+        });
+        return;
+      }
+    }
+
+    res.status(401).json({
+      status: "error",
+      message: "Login not successfully",
     });
   } catch (error) {
-    res.json({
+    res.status(500).json({
       status: "error",
       message: error.message,
     });
