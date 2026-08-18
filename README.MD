@@ -32,6 +32,9 @@ This project is build with React JS, Node.js+express.js, MongoDB and deployed vi
   - React JS
   - Contact API
   - Bootstrap in React
+  - React-Toastify
+  - React-icon
+  - React API call endpoint axios
 - **REST API**:
   - Postman for tesing
   - REST extention install in VS-code
@@ -49,19 +52,36 @@ To set up this project in your device locally, please follow the steps:
 1.  **Clone the respository**:
     run the following command in your terminal:
     > ```
-    >   git clone https://github.com/yadin-nou/api
+    >   git clone https://github.com/yadin-nou/backend-ft
+    >   git clone https://github.com/yadin-nou/finance-tracker
     > ```
 2.  **Navigate to the project directory**:
     > ```
     >   cd yadin-nou
     > ```
 3.  **Install Dependencies**:
+
     > ```
-    >   yarn add express.js
-    >   yarn add nodemon
-    >   yarn add moongoose
-    >   yarn add morgan (for http request logger)
+    >
     > ```
+    - ### Backend
+      > yarn add express.js
+      > yarn add nodemon
+      > yarn add cors
+      > yarn add bcrypt
+      > yarn add moongoose
+      > yarn add morgan (for http request logger)
+    - ### Frontend
+      > yarn add axios
+      > yarn add booststrap bootstrap
+      > yarn add react-toastify
+      > yarn add ract-icon
+      > yarn add rect-router-dom
+
+    > ```
+    >
+    > ```
+
 4.  **Run the development server**:
     > ```
     >   yarn dev
