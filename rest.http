@@ -2,7 +2,14 @@
 @urlLink=http://localhost:8000/api/v1/users/
 
 ### GET  to do with api/users
-GET {{urlLink}}
+GET {{urlLink}}login
+Content-Type: application/json
+
+{
+    "email":"nouyadin@gmail.com",
+    "password":"12345"
+}
+
 
 ### GET  to do with :8000
 GET http://localhost:8000

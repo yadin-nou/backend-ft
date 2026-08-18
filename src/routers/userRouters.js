@@ -32,12 +32,12 @@ userRouter.post("/signup", async (req, res) => {
   }
 });
 //user login
-userRouter.get("/login", (req, res) => {
+userRouter.post("/login", (req, res) => {
   try {
     console.log(req.body, " body");
     res.json({
       status: "success",
-      message: "GET TO DO",
+      message: "Login success",
     });
   } catch (error) {
     res.json({
