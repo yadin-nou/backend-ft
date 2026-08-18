@@ -1,6 +1,7 @@
 import express from "express";
 import { insertUser, loginUserByEmail } from "../models/userModel.js";
 import { pwdHashEncrypt, pwdMatching } from "../../utils/pwdHashEncryption.js";
+import { signJWT } from "../../utils/jwt.js";
 
 const userRouter = express();
 
@@ -42,10 +43,12 @@ userRouter.post("/login", async (req, res) => {
       //compare password
       const isMatch = pwdMatching(password, user.password);
       if (isMatch) {
+        const jwtAccess = signJWT({ email });
         //set password ot undfined before response to the client
         user.password = undefined;
         res.status(201).json({
           user,
+          jwtAccess,
           status: "success",
           message: "Login success",
         });
@@ -55,6 +58,7 @@ userRouter.post("/login", async (req, res) => {
 
     res.status(401).json({
       status: "error",
+      error: "Invalid email or password!",
       message: "Login not successfully",
     });
   } catch (error) {
