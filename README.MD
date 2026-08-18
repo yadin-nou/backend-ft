@@ -60,28 +60,48 @@ To set up this project in your device locally, please follow the steps:
     >   cd yadin-nou
     > ```
 3.  **Install Dependencies**:
-
-    > ```
-    >
-    > ```
     - ### Backend
+      > ```
       > yarn add express.js
+      > ```
+      >
+      > ```
       > yarn add nodemon
+      > ```
+      >
+      > ```
       > yarn add cors
+      > ```
+      >
+      > ```
       > yarn add bcrypt
+      > ```
+      >
+      > ```
       > yarn add moongoose
-      > yarn add morgan (for http request logger)
+      > ```
+      >
+      > ```
+      > yarn add morgan
+      > ```
     - ### Frontend
+      > ```
       > yarn add axios
+      >
+      > ```
+      >
       > yarn add booststrap bootstrap
+      >
+      > ```
       > yarn add react-toastify
+      >
+      > ```
+      >
       > yarn add ract-icon
+      >
+      > ```
       > yarn add rect-router-dom
-
-    > ```
-    >
-    > ```
-
+      > ```
 4.  **Run the development server**:
     > ```
     >   yarn dev
@@ -92,15 +112,40 @@ To set up this project in your device locally, please follow the steps:
 ## Project Structure
 
 ```
-Financial Tracker App
+FT Backend
 |-- public
 |-- src
 | |-- config
-| | |-- db.Config.js
+| | |-- db.config.js
 | |-- models
-| | |-- taskSchema.js
+| | |-- userModel.js
+| | |-- userSchema.js
 | |-- router
 | | |-userRouter.js
+| |-- utils
+| | |-pwdHashEncryption.js
+```
+
+```
+FT Frontend
+|-- public
+|-- src
+| |-- assets
+| | |--
+| |-- axiosHelper
+| | |-- axiosConnection.js
+| |-- component
+| | |--Layout
+| | | |--FormTempalte.jsx
+| | | |--LoginFormLayout.jsx
+| | | |--TipContext.jsx
+| | | |--UserForms.jsx
+| |-- hooks
+| | |--useFormHook.js
+| |-- pages
+| | |--LoginPage.js
+| | |--SignUp.js
+
 ```
 
 ## Contributing
