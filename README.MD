@@ -87,17 +87,19 @@ To set up this project in your device locally, please follow the steps:
     - ### Frontend
       > ```
       > yarn add axios
-      >
       > ```
       >
+      > ```
       > yarn add booststrap bootstrap
+      > ```
       >
       > ```
       > yarn add react-toastify
-      >
       > ```
       >
+      > ```
       > yarn add ract-icon
+      > ```
       >
       > ```
       > yarn add rect-router-dom
