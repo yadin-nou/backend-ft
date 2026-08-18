@@ -35,7 +35,6 @@ userRouter.post("/signup", async (req, res) => {
 userRouter.post("/login", async (req, res) => {
   try {
     //recieve email and password
-    console.log(req.body, " body");
     const { email, password } = req.body;
     if (email && password) {
       //check user by email from db

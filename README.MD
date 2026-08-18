@@ -40,6 +40,7 @@ This project is build with React JS, Node.js+express.js, MongoDB and deployed vi
   - REST extention install in VS-code
 - **Backend**:
   - Node.js, express.js
+  - JWT decoded
 - **Database**:
   - MongoDB
 - ## **Deployment**
@@ -103,6 +104,10 @@ To set up this project in your device locally, please follow the steps:
       >
       > ```
       > yarn add rect-router-dom
+      > ```
+      >
+      > ```
+      > yarn add jsonwebtoken
       > ```
 4.  **Run the development server**:
     > ```
