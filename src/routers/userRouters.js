@@ -2,7 +2,7 @@ import express from "express";
 import { insertUser, loginUserByEmail } from "../models/userModel.js";
 import { pwdHashEncrypt, pwdMatching } from "../../utils/pwdHashEncryption.js";
 import { signJWT } from "../../utils/jwt.js";
-import { auth } from "../middlewares/authMiddlewaare.js";
+import { auth } from "../middlewares/authMiddleware.js";
 
 const userRouter = express();
 

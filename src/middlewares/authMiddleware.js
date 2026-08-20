@@ -11,11 +11,12 @@ export const auth = async (req, res, next) => {
     //cuz the result response from verifyToken contain email,
     if (result?.email) {
       //read user from database by email to check user is exist or not
-      const user = await loginUserByEmail(email);
+      const user = await loginUserByEmail(result.email);
       //check if user _id work or not
       if (user?._id) {
         //user is authorize
         //store user info in the req header and next() function execute
+        user.password = undefined;
         req.userInfo = user;
         return next();
       }
