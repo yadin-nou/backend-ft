@@ -17,6 +17,7 @@ export const auth = async (req, res, next) => {
         //user is authorize
         //store user info in the req header and next() function execute
         user.password = undefined;
+        //req.userInfo we created to store user data to header
         req.userInfo = user;
         return next();
       }

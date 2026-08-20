@@ -71,6 +71,7 @@ userRouter.post("/login", async (req, res, next) => {
 });
 //user profile
 
+//auth execute the request first to verify token befor pass to next function
 userRouter.get("/", auth, (req, res, next) => {
   try {
     //req.userInfo is from auth function which execute after next
