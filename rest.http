@@ -1,7 +1,7 @@
 ### variable
 @urlLink=http://localhost:8000/api/v1/users/
 
-### GET  to do with api/users
+### GET  to do with user login
 POST {{urlLink}}login
 Content-Type: application/json
 
@@ -11,9 +11,9 @@ Content-Type: application/json
 }
 
 
-### GET  to do with :8000
-GET http://localhost:8000
-
+### GET  to do with user profile
+GET http://localhost:8000/api/v1/users/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzI1NDg0NCwiZXhwIjoxNzg3MjU0OTA0fQ.EE4Ivu42-W9TZaydcDlZrEwKpH1NSDlxEcZTek3jufw
 
 ### POST to do
 POST {{urlLink}}signup

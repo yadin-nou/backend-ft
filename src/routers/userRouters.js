@@ -2,11 +2,12 @@ import express from "express";
 import { insertUser, loginUserByEmail } from "../models/userModel.js";
 import { pwdHashEncrypt, pwdMatching } from "../../utils/pwdHashEncryption.js";
 import { signJWT } from "../../utils/jwt.js";
+import { auth } from "../middlewares/authMiddlewaare.js";
 
 const userRouter = express();
 
 //user Signup
-userRouter.post("/signup", async (req, res) => {
+userRouter.post("/signup", async (req, res, next) => {
   try {
     req.body.password = pwdHashEncrypt(req.body.password);
     // console.log(req.body, " userRouter.js");
@@ -33,7 +34,7 @@ userRouter.post("/signup", async (req, res) => {
   }
 });
 //user login
-userRouter.post("/login", async (req, res) => {
+userRouter.post("/login", async (req, res, next) => {
   try {
     //recieve email and password
     const { email, password } = req.body;
@@ -70,7 +71,7 @@ userRouter.post("/login", async (req, res) => {
 });
 //user profile
 
-userRouter.get("/", (req, res) => {
+userRouter.get("/", auth, (req, res, next) => {
   try {
     res.json({
       status: "success",
