@@ -20,6 +20,9 @@ export const auth = async (req, res, next) => {
         return next();
       }
     }
+    res.status(403).json({
+      error: "Unauthorized",
+    });
   } catch (error) {
     console.log(error.message);
   }

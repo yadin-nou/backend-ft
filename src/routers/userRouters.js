@@ -73,9 +73,12 @@ userRouter.post("/login", async (req, res, next) => {
 
 userRouter.get("/", auth, (req, res, next) => {
   try {
+    //req.userInfo is from auth function which execute after next
+    const user = req.userInfo;
     res.json({
       status: "success",
-      message: "GET TO DO",
+      message: "get profile",
+      user,
     });
   } catch (error) {
     res.json({
