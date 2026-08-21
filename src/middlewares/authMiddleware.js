@@ -5,6 +5,7 @@ export const auth = async (req, res, next) => {
   try {
     //receiving token
     const { authorization } = req.headers;
+
     //verify tokoen
     const result = verifyToken(authorization);
     //validate if the token is validate

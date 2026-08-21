@@ -13,8 +13,7 @@ Content-Type: application/json
 
 ### GET  to do with user profile
 GET http://localhost:8000/api/v1/users/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzI1NjQ1OSwiZXhwIjoxNzg3MjU2NTE5fQ.GtKRlczUuuUR5abGLLC7F8dtvL9I1r8izHP8ZaTbihI
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzM0MTY1NSwiZXhwIjoxNzg3NDI4MDU1fQ.B6jRH9SxFPdJ2Ri7sQoF52qbxSvhsEFeftJNpvc_MfE
 
 
 
