@@ -1,5 +1,6 @@
 ### variable
 @urlLink=http://localhost:8000/api/v1/users/
+@urlTransaction=http://localhost:8000/api/v1/transaction/
 
 ### GET  to do with user login
 POST {{urlLink}}login
@@ -13,9 +14,7 @@ Content-Type: application/json
 
 ### GET  to do with user profile
 GET http://localhost:8000/api/v1/users/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzM0MTY1NSwiZXhwIjoxNzg3NDI4MDU1fQ.B6jRH9SxFPdJ2Ri7sQoF52qbxSvhsEFeftJNpvc_MfE
-
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzM3ODg1NywiZXhwIjoxNzg3NDY1MjU3fQ.K8m7Ir9GCaSZbVDTXAA6_eHbPLAo8cQe4QUZhh1oQnY
 
 ### POST to sign up
 POST {{urlLink}}signup
@@ -28,14 +27,19 @@ Content-Type: application/json
     "password":"12345"
 }
 
+### Transaction section
+
 ### POST to add transaction
-POST {{urlLink}}transaction
+POST {{urlTransaction}}
 Content-Type: application/json
 
 {
     "userID":"6a837551dc83cb97e8ee9e78",
     "type":"expanses",
-    "title":"food",
+    "title":"exercise",
     "amount":22.5,
-    "date":"2026-08-22"
+    "date":"2026-08-22",
+    "headers":{
+        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzM3ODg1NywiZXhwIjoxNzg3NDY1MjU3fQ.K8m7Ir9GCaSZbVDTXAA6_eHbPLAo8cQe4QUZhh1oQnY"
+    }
 }
