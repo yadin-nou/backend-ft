@@ -33,6 +33,7 @@ POST {{urlLink}}transaction
 Content-Type: application/json
 
 {
+    "userID":"6a837551dc83cb97e8ee9e78",
     "type":"expanses",
     "title":"food",
     "amount":22.5,

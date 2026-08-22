@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const transactionSchema = mongoose.Schema(
   {
+    userID: {
+      type: String,
+      required: true,
+    },
     type: {
       type: String,
       required: true,
