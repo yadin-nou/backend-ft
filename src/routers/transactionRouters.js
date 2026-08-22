@@ -7,8 +7,11 @@ const transactionRouters = express();
 //user add transaction
 transactionRouters.post("/", auth, async (req, res, next) => {
   try {
+    const { _id } = req.userInfo;
+    req.body.userID = _id;
+    //  console.log(req.body);
     const result = await addTransaction(req.body);
-    const user = req.userInfo;
+
     // console.log(req.body);
     result?._id
       ? res.json({

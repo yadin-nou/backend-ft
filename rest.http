@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ### GET  to do with user profile
 GET http://localhost:8000/api/v1/users/
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzM3ODg1NywiZXhwIjoxNzg3NDY1MjU3fQ.K8m7Ir9GCaSZbVDTXAA6_eHbPLAo8cQe4QUZhh1oQnY
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzQzODcyMywiZXhwIjoxNzg3NTI1MTIzfQ.8aq90v63Ypnr-_OZIMEZd2vg0NaZ2V5AwSRqhImxhF8
 
 ### POST to sign up
 POST {{urlLink}}signup
@@ -32,14 +32,12 @@ Content-Type: application/json
 ### POST to add transaction
 POST {{urlTransaction}}
 Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzQzODcyMywiZXhwIjoxNzg3NTI1MTIzfQ.8aq90v63Ypnr-_OZIMEZd2vg0NaZ2V5AwSRqhImxhF8
 
 {
-    "userID":"6a837551dc83cb97e8ee9e78",
     "type":"expanses",
     "title":"exercise",
     "amount":22.5,
-    "date":"2026-08-22",
-    "headers":{
-        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzM3ODg1NywiZXhwIjoxNzg3NDY1MjU3fQ.K8m7Ir9GCaSZbVDTXAA6_eHbPLAo8cQe4QUZhh1oQnY"
-    }
+    "date":"2026-08-22"
+     
 }
