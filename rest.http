@@ -36,5 +36,5 @@ Content-Type: application/json
     "type":"expanses",
     "title":"food",
     "amount":22.5,
-    "date":"22/08/2026"
+    "date":"2026-08-22"
 }
