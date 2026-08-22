@@ -127,6 +127,21 @@ To set up this project in your device locally, please follow the steps:
 
 Create a .env file in the root fo your project and add the following environment variables:
 
+## Project Workflow
+
+- **Trasaction Page**:
+  - Create trasaction form
+    - type (income,expense)
+    - description
+    - amount
+    - date
+  - Validate form
+  - Handle adding transaction into Database
+  - Create controller
+  - Auth & Middleware
+  - Receive data and userId
+  - Response message
+
 ## Project Structure
 
 ```

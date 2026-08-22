@@ -33,6 +33,34 @@ userRouter.post("/signup", async (req, res, next) => {
         });
   }
 });
+
+//user add transaction
+userRouter.post("/transaction", async (req, res, next) => {
+  try {
+    const result = req.body;
+    console.log(req.body);
+    res.json({
+      status: "success",
+      message: "a new transaction added",
+    });
+
+    //const result = await insertUser(req.body);
+    // result?._id
+    //   ? res.json({
+    //       status: "success",
+    //       message: "a new transaction added",
+    //     })
+    //   : res.json({
+    //       status: "error",
+    //       message: error.message,
+    //     });
+  } catch (error) {
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
+});
 //user login
 userRouter.post("/login", async (req, res, next) => {
   try {

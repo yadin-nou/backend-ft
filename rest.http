@@ -17,7 +17,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdt
 
 
 
-### POST to do
+### POST to sign up
 POST {{urlLink}}signup
 Content-Type: application/json
 
@@ -26,4 +26,15 @@ Content-Type: application/json
     "email":"nouyadin@gmail.com",
     "gender":"male",
     "password":"12345"
+}
+
+### POST to add transaction
+POST {{urlLink}}transaction
+Content-Type: application/json
+
+{
+    "type":"expanses",
+    "title":"food",
+    "amount":22.5,
+    "date":"22/08/2026"
 }
