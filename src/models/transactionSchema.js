@@ -4,6 +4,8 @@ const transactionSchema = mongoose.Schema(
   {
     userID: {
       type: mongoose.Schema.Types.ObjectId,
+      //just tell develper that ref User is  another table ID
+      ref: "User",
       required: true,
     },
     type: {
