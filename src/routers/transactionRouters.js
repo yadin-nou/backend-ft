@@ -1,6 +1,6 @@
 import express from "express";
 import { auth } from "../middlewares/authMiddleware.js";
-import { addTransaction } from "../models/transactionModel.js";
+import { addTransaction, getTransaction } from "../models/transactionModel.js";
 
 const transactionRouters = express();
 
@@ -29,4 +29,27 @@ transactionRouters.post("/", auth, async (req, res, next) => {
     });
   }
 });
+
+transactionRouters.get("/", auth, async (req, res, next) => {
+  try {
+    const { _id } = req.userInfo;
+    const result = await getTransaction(_id);
+    result
+      ? res.json({
+          data: result,
+          status: "success",
+          message: "Transaction succesfully retrived!",
+        })
+      : res.json({
+          status: "error",
+          message: error.message,
+        });
+  } catch (error) {
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
+});
+
 export default transactionRouters;

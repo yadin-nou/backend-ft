@@ -41,3 +41,7 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtY
     "date":"2026-08-22"
      
 }
+
+### GET  transaction data to show
+GET {{urlTransaction}}
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzQ0NjAwNSwiZXhwIjoxNzg3NTMyNDA1fQ.DxGfuqHMNtIMP3Z0AO8g_x2NP0WXZy3bjDJfoJ0xgLo
