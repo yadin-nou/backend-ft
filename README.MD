@@ -141,6 +141,13 @@ Create a .env file in the root fo your project and add the following environment
   - Auth & Middleware
   - Receive data and userId
   - Response message
+- **Display Transaction to Table**
+  - Create getTrasaction Model
+  - Create getTrasaction fuction in Transaction Router
+  - REST API test
+  - Create table component
+  - create API call Axios to server
+  - Display data in table list
 
 ## Project Structure
 

@@ -7,3 +7,6 @@ export const addTransaction = (data) => {
 export const getTransaction = (userID) => {
   return transactionSchema.find({ userID });
 };
+export const deleteTransaction = (_ids) => {
+  return transactionSchema.deleteMany({ _id: { $in: _ids } });
+};

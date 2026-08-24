@@ -45,3 +45,15 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtY
 ### GET  transaction data to show
 GET {{urlTransaction}}
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzQ0NjAwNSwiZXhwIjoxNzg3NTMyNDA1fQ.DxGfuqHMNtIMP3Z0AO8g_x2NP0WXZy3bjDJfoJ0xgLo
+
+###Delete transaction
+DELETE {{urlTransaction}}
+Content-Type: application/json
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzYwODU1MCwiZXhwIjoxNzg3Njk0OTUwfQ.K9ggHTaaipCYvHormIeIFNgVhE2_1i_BAceJ_bISLG0
+
+
+[
+    "6a8a2b9616d1a3acfce6ceb5",
+    "6a8aac43240d3d0100476853",
+    "6a8aaf59240d3d0100476859"
+  ]

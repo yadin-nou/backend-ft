@@ -1,6 +1,10 @@
 import express from "express";
 import { auth } from "../middlewares/authMiddleware.js";
-import { addTransaction, getTransaction } from "../models/transactionModel.js";
+import {
+  addTransaction,
+  deleteTransaction,
+  getTransaction,
+} from "../models/transactionModel.js";
 
 const transactionRouters = express();
 
@@ -51,5 +55,25 @@ transactionRouters.get("/", auth, async (req, res, next) => {
     });
   }
 });
-
+transactionRouters.delete("/", auth, async (req, res, next) => {
+  try {
+    //  const { _id } = req.userInfo;
+    const result = await deleteTransaction(req.body);
+    result
+      ? res.json({
+          data: result,
+          status: "success",
+          message: "Delete succesfully",
+        })
+      : res.json({
+          status: "error",
+          message: error.message,
+        });
+  } catch (error) {
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
+});
 export default transactionRouters;
