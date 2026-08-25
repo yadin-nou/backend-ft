@@ -57,8 +57,8 @@ transactionRouters.get("/", auth, async (req, res, next) => {
 });
 transactionRouters.delete("/", auth, async (req, res, next) => {
   try {
-    //  const { _id } = req.userInfo;
-    const result = await deleteTransaction(req.body);
+    const { _id } = req.userInfo;
+    const result = await deleteTransaction(_id, req.body);
     result
       ? res.json({
           data: result,
