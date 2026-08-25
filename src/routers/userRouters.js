@@ -23,11 +23,11 @@ userRouter.post("/signup", async (req, res, next) => {
         });
   } catch (error) {
     if (error.code === 11000) {
-      res.json({
-        status: "error",
-        message: "Your email is exist! Please try again later",
-      });
-    } else {
+      // res.json({
+      //   status: "error",
+      //   message: "Your email is exist! Please try again later",
+      // });
+      error.message = "Your email is exist! Please try again later.";
       error.statusCode = 200;
       next(error);
     }

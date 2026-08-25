@@ -31,6 +31,7 @@ app.use("/api/v1/transaction/", transactionRouters);
 //404 page not found
 //if the code above not catch, then
 //this code will execute
+//create template for error code
 app.use((req, res, next) => {
   const error = new Error("NOT FOUND");
   //create a status code 404
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
   next(error);
 });
 //Middleware Gobal Handler
+//errorHandler will response all JSON
 app.use(errorHandler);
 
 app.listen(PORT, (error) => {
