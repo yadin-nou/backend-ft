@@ -22,15 +22,15 @@ userRouter.post("/signup", async (req, res, next) => {
           message: error.message,
         });
   } catch (error) {
-    error.code === 11000
-      ? res.json({
-          status: "error",
-          message: "Your email is exist! Please try again later",
-        })
-      : res.json({
-          status: "error",
-          message: error.message,
-        });
+    if (error.code === 11000) {
+      res.json({
+        status: "error",
+        message: "Your email is exist! Please try again later",
+      });
+    } else {
+      error.statusCode = 200;
+      next(error);
+    }
   }
 });
 
@@ -64,10 +64,12 @@ userRouter.post("/login", async (req, res, next) => {
       message: "Login not successfully",
     });
   } catch (error) {
-    res.status(500).json({
-      status: "error",
-      message: error.message,
-    });
+    // res.status(500).json({
+    //   status: "error",
+    //   message: error.message,
+    // });
+    /* This will run middleware function Glable error */
+    next(error);
   }
 });
 //user profile
@@ -83,10 +85,7 @@ userRouter.get("/", auth, (req, res, next) => {
       user,
     });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    next(error);
   }
 });
 

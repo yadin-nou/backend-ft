@@ -27,10 +27,8 @@ transactionRouters.post("/", auth, async (req, res, next) => {
           message: error.message,
         });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    //next error will run app.use(errorHandler) Middleware
+    next(error);
   }
 });
 
@@ -49,10 +47,8 @@ transactionRouters.get("/", auth, async (req, res, next) => {
           message: error.message,
         });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    //next error will run app.use(errorHandler) Middleware
+    next(error);
   }
 });
 transactionRouters.delete("/", auth, async (req, res, next) => {
@@ -70,10 +66,8 @@ transactionRouters.delete("/", auth, async (req, res, next) => {
           message: error.message,
         });
   } catch (error) {
-    res.json({
-      status: "error",
-      message: error.message,
-    });
+    //next error will run app.use(errorHandler) Middleware
+    next(error);
   }
 });
 export default transactionRouters;

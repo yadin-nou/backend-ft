@@ -13,7 +13,7 @@ Content-Type: application/json
 
 
 ### GET  to do with user profile
-GET http://localhost:8000/api/v1/users/
+GET http://localhost:8000/api/v1/users
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzQzODcyMywiZXhwIjoxNzg3NTI1MTIzfQ.8aq90v63Ypnr-_OZIMEZd2vg0NaZ2V5AwSRqhImxhF8
 
 ### POST to sign up
