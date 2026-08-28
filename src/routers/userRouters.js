@@ -69,6 +69,7 @@ userRouter.post("/login", async (req, res, next) => {
     //   message: error.message,
     // });
     /* This will run middleware function Glable error */
+
     next(error);
   }
 });
