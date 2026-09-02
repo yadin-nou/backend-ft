@@ -1,5 +1,9 @@
 import express from "express";
-import { insertUser, loginUserByEmail } from "../models/userModel.js";
+import {
+  confirmEmail,
+  insertUser,
+  loginUserByEmail,
+} from "../models/userModel.js";
 import { pwdHashEncrypt, pwdMatching } from "../../utils/pwdHashEncryption.js";
 import { signJWT } from "../../utils/jwt.js";
 import { auth } from "../middlewares/authMiddleware.js";
@@ -10,9 +14,27 @@ const userLink = "/api/v1/users/";
 const link = process.env.VITE_REACT_URL + "/login";
 
 //user confirmation
-userRouter.get("/email_confirm", (req, res, next) => {
+userRouter.get("/email_confirm", async (req, res, next) => {
   const { token } = req.query;
-
+  if (!token) {
+    return res
+      .status(400)
+      .json({ status: "error", message: "No token provided" });
+  }
+  const user = await confirmEmail(token);
+  if (!user) {
+    return res
+      .status(400)
+      .json({ status: "error", message: "Invalid or already used" });
+  }
+  if (user.tokenExpire < Date.now()) {
+    return res.status(400).json({ status: "error", message: "Token Expired" });
+  }
+  user.isConfirm = true;
+  user.token = "undefined";
+  // save() is update to db not insert because user recived from confirmEmail by fineOne()
+  user.save();
+  console.log(user);
   res.send(`
   <html>
     <body style="font-family: Arial, sans-serif; text-align:center; padding: 60px;">
@@ -69,7 +91,7 @@ userRouter.post("/login", async (req, res, next) => {
       const user = await loginUserByEmail(email);
       //compare password
       const isMatch = pwdMatching(password, user.password);
-      if (isMatch) {
+      if (isMatch && user.isConfirm) {
         const jwtAccess = signJWT({ email });
         //set password ot undfined before response to the client
         user.password = undefined;

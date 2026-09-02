@@ -20,7 +20,7 @@ const dbSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    isComfirm: {
+    isConfirm: {
       type: Boolean,
       default: false,
     },
