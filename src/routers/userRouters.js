@@ -10,7 +10,10 @@ const userRouter = express();
 //user Signup
 userRouter.post("/signup", async (req, res, next) => {
   try {
+    const { email } = req.body;
     req.body.password = pwdHashEncrypt(req.body.password);
+    req.body.token = signJWT({ email });
+    req.body.tokenExpire = Date.now() + 24 * 60 * 60 * 1000;
     // console.log(req.body, " userRouter.js");
     const result = await insertUser(req.body);
     if (result?._id) {
