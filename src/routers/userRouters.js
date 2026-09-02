@@ -6,6 +6,22 @@ import { auth } from "../middlewares/authMiddleware.js";
 import { userUpdateTemplate } from "../nodemailer/nodeMailer.js";
 
 const userRouter = express();
+const userLink = "/api/v1/users/";
+const link = process.env.VITE_REACT_URL + "/login";
+
+//user confirmation
+userRouter.get("/email_confirm", (req, res, next) => {
+  const { token } = req.query;
+
+  res.send(`
+  <html>
+    <body style="font-family: Arial, sans-serif; text-align:center; padding: 60px;">
+      <h2>Your email has been verified!</h2>
+      <p>Please <a href="${link}" style="color:#4f46e5;">log in</a> to continue.</p>
+    </body>
+  </html>
+`);
+});
 
 //user Signup
 userRouter.post("/signup", async (req, res, next) => {

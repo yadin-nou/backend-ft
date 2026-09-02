@@ -23,9 +23,11 @@ const emailPreocessor = async (template) => {
   }
 };
 //create the emial processor send out the email
-export const userUpdateTemplate = ({ name, email }) => {
+export const userUpdateTemplate = ({ name, email, token }) => {
   const sender = process.env.SMTP_USER;
-
+  const userRouter = "/api/v1/users";
+  const link =
+    process.env.VITE_ROOT_URL + userRouter + "/email_confirm?token=" + token;
   console.log(sender, "-", process.env.SMTP_PASS, "-", sender);
   const obj = {
     // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
@@ -35,10 +37,15 @@ export const userUpdateTemplate = ({ name, email }) => {
     text: `Thanks for signing up. 
     Your account has been created successfully, 
     and you're all set to get started`, // plain text body
-    html: `<p>Thanks for signing up. 
+    html:
+      `<p>Thanks for signing up. 
     Your account has been created successfully, 
     and you're all set to get started.</p>
-    Best Regard,
+    <h5>Please confirm email</h5>
+    <p><a href="` +
+      link +
+      `">Click to confirm</a></p>
+    Best Regard,<br/>
     Yadin Nou
     `, // HTML body
   };
