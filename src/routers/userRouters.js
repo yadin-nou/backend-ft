@@ -3,6 +3,7 @@ import { insertUser, loginUserByEmail } from "../models/userModel.js";
 import { pwdHashEncrypt, pwdMatching } from "../../utils/pwdHashEncryption.js";
 import { signJWT } from "../../utils/jwt.js";
 import { auth } from "../middlewares/authMiddleware.js";
+import { userUpdateTemplate } from "../nodemailer/nodeMailer.js";
 
 const userRouter = express();
 
@@ -12,15 +13,20 @@ userRouter.post("/signup", async (req, res, next) => {
     req.body.password = pwdHashEncrypt(req.body.password);
     // console.log(req.body, " userRouter.js");
     const result = await insertUser(req.body);
-    result?._id
-      ? res.json({
-          status: "success",
-          message: "Account has been created, you can login now!",
-        })
-      : res.json({
-          status: "error",
-          message: error.message,
-        });
+    if (result?._id) {
+      res.json({
+        status: "success",
+        message: "Account has been created, you can login now!",
+      });
+      req.body.password = undefined;
+      console.log(req.body);
+      userUpdateTemplate(req.body);
+    } else {
+      res.json({
+        status: "error",
+        message: error.message,
+      });
+    }
   } catch (error) {
     if (error.code === 11000) {
       // res.json({
