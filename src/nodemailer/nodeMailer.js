@@ -10,13 +10,6 @@ const transporter = nodemailer.createTransport({
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
-  //for Render.com server to fix SMTP is blocked
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 10000,
-  logger: true, // logs SMTP protocol exchange
-  debug: true, // very verbose — temporarily helpful
-  family: 4,
 });
 
 //Email processor

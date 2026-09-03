@@ -24,8 +24,8 @@ app.get("/", (req, res) => {
   });
 });
 //for Render.com when we deploy and mail smtp not running
-import dns from "dns";
-dns.setDefaultResultOrder("ipv4first");
+// import dns from "dns";
+// dns.setDefaultResultOrder("ipv4first");
 
 app.use(express.json());
 app.use("/api/v1/users/", userRouter);
