@@ -10,6 +10,12 @@ const transporter = nodemailer.createTransport({
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
+  //for Render.com server to fix SMTP is blocked
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
+  logger: true, // logs SMTP protocol exchange
+  debug: true, // very verbose — temporarily helpful
 });
 
 //Email processor
@@ -28,7 +34,7 @@ export const userUpdateTemplate = ({ name, email, token }) => {
   const userRouter = "/api/v1/users";
   const serverURL = process.env.VITE_ROOT_URL;
   const link = serverURL + userRouter + "/email_confirm?token=" + token;
-  console.log(link);
+  // console.log(link);
   const obj = {
     // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
     from: name + " <" + sender + ">",
