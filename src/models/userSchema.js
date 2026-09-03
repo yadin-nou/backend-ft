@@ -16,6 +16,18 @@ const dbSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    token: {
+      type: String,
+      required: true,
+    },
+    isConfirm: {
+      type: Boolean,
+      default: false,
+    },
+    tokenExpire: {
+      type: Date,
+      required: true,
+    },
   },
   { timestamps: true },
 );

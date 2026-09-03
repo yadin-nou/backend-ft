@@ -27,6 +27,14 @@ Content-Type: application/json
     "password":"12345"
 }
 
+### send email
+POST {{urlLink}}
+Content-Type: application/json
+
+{
+    "to":"yadin@gmail.com"
+}
+
 ### Transaction section
 
 ### POST to add transaction
