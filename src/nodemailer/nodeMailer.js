@@ -22,8 +22,6 @@ const emailPreocessor = async (template) => {
     console.log(result.messageId);
   } catch (error) {
     console.log(error);
-  } finally {
-    transporter.close();
   }
 };
 //create the emial processor send out the email
