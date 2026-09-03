@@ -34,7 +34,7 @@ userRouter.get("/email_confirm", async (req, res, next) => {
   user.token = "undefined";
   // save() is update to db not insert because user recived from confirmEmail by fineOne()
   user.save();
-  console.log(user);
+  //console.log(user);
   res.send(`
   <html>
     <body style="font-family: Arial, sans-serif; text-align:center; padding: 60px;">
@@ -51,6 +51,7 @@ userRouter.post("/signup", async (req, res, next) => {
     const { email } = req.body;
     req.body.password = pwdHashEncrypt(req.body.password);
     req.body.token = signJWT({ email });
+    //date expired next day
     req.body.tokenExpire = Date.now() + 24 * 60 * 60 * 1000;
     // console.log(req.body, " userRouter.js");
     const result = await insertUser(req.body);
@@ -60,7 +61,7 @@ userRouter.post("/signup", async (req, res, next) => {
         message: "Account has been created, you can login now!",
       });
       req.body.password = undefined;
-      console.log(req.body);
+      // console.log(req.body);
       userUpdateTemplate(req.body);
     } else {
       res.json({
