@@ -26,9 +26,9 @@ const emailPreocessor = async (template) => {
 export const userUpdateTemplate = ({ name, email, token }) => {
   const sender = process.env.SMTP_USER;
   const userRouter = "/api/v1/users";
-  const link =
-    process.env.VITE_ROOT_URL + userRouter + "/email_confirm?token=" + token;
-  console.log(sender, "-", process.env.SMTP_PASS, "-", sender);
+  const serverURL = process.env.VITE_ROOT_URL;
+  const link = serverURL + userRouter + "/email_confirm?token=" + token;
+  //console.log(sender, "-", process.env.SMTP_PASS, "-", sender);
   const obj = {
     // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
     from: name + " <" + sender + ">",
