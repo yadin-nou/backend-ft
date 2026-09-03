@@ -16,6 +16,7 @@ const transporter = nodemailer.createTransport({
   socketTimeout: 10000,
   logger: true, // logs SMTP protocol exchange
   debug: true, // very verbose — temporarily helpful
+  family: 4,
 });
 
 //Email processor
