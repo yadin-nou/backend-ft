@@ -12,7 +12,7 @@ import { userUpdateTemplate } from "../nodemailer/nodeMailer.js";
 const userRouter = express();
 const userLink = "/api/v1/users/";
 const link = process.env.VITE_REACT_URL + "/login";
-
+//console.log(link);
 //user confirmation
 userRouter.get("/email_confirm", async (req, res, next) => {
   const { token } = req.query;
