@@ -28,7 +28,7 @@ export const userUpdateTemplate = ({ name, email, token }) => {
   const userRouter = "/api/v1/users";
   const serverURL = process.env.VITE_ROOT_URL;
   const link = serverURL + userRouter + "/email_confirm?token=" + token;
-  console.log(serverURL);
+  console.log(link);
   const obj = {
     // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
     from: name + " <" + sender + ">",
