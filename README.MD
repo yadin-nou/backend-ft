@@ -1,6 +1,6 @@
 # Financial Tracker Application
 
-This project is about the Financial Tracker to users who spend money every day. This will show every translation of their expense and growing base on date. In addition, users are able to delete their translation. Users can view the Link graph based on their income, net worth and expense base on date.
+This project is about the Financial Tracker to users who spend money every day. This will show every transaction of their expense and growing base on date. In addition, users are able to delete their translation. Users can view the Link graph based on their income, net worth and expense base on date.
 
 ![Websute Screenshort]()
 
