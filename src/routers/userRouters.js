@@ -58,7 +58,8 @@ userRouter.post("/signup", async (req, res, next) => {
     if (result?._id) {
       res.json({
         status: "success",
-        message: "Account has been created, you can login now!",
+        message:
+          "Account has been created, Please check your email to confirm!",
       });
       req.body.password = undefined;
       // console.log(req.body);

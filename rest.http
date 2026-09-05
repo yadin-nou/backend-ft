@@ -21,7 +21,7 @@ Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtY
 
 
 ### POST to sign up Live url to Render Server
-POST {{liverurl}}signup
+POST {{liverRender}}signup
 Content-Type: application/json
 
 {
