@@ -38,7 +38,7 @@ export const userUpdateTemplate = ({ email, token }) => {
   //const serverURL = process.env.VITE_ROOT_URL;
   const serverURL = "https://app.yadin-nou.dev";
   //const link = serverURL + userRouter + "/email_confirm?token=" + token;
-  const link = serverURL + userRouter + "/email_confirm?token=" + token;
+  const link = serverURL + "/email_confirm?token=" + token;
   // console.log(link);
   const obj = {
     // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
