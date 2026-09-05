@@ -25,7 +25,7 @@ const emailPreocessor = async (template) => {
   try {
     // const result = await transporter.sendMail(template);
     const result = await resend.emails.send(template);
-    console.log(result.data.id);
+    console.log(result);
   } catch (error) {
     console.log(error);
   }
