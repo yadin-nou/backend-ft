@@ -2,7 +2,8 @@
 @urlLink=http://localhost:8000/api/v1/users/
 @urlTransaction=http://localhost:8000/api/v1/transaction/
 
-@liverurl=https://finance-tracker-bk.onrender.com/api/v1/users/
+@liverRender=https://finance-tracker-bk.onrender.com/api/v1/users/
+@liveRailway=https://backend-ft-production.up.railway.app/api/v1/users/
 
 ### GET  to do with user login
 POST {{urlLink}}login
@@ -18,8 +19,8 @@ Content-Type: application/json
 GET http://localhost:8000/api/v1/users
 Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5vdXlhZGluQGdtYWlsLmNvbSIsImlhdCI6MTc4NzQzODcyMywiZXhwIjoxNzg3NTI1MTIzfQ.8aq90v63Ypnr-_OZIMEZd2vg0NaZ2V5AwSRqhImxhF8
 
-### Add live url
-### POST to sign up
+
+### POST to sign up Live url to Render Server
 POST {{liverurl}}signup
 Content-Type: application/json
 
@@ -29,16 +30,24 @@ Content-Type: application/json
     "password":"123"
 }
 
+### POST to sign up Live url to Railway server
+POST {{liveRailway}}signup
+Content-Type: application/json
 
-### POST to sign up
+{
+    "name":"Yadin",
+    "email":"nouyadin007@gmail.com",
+    "password":"123"
+}
+
+### POST to sign up in Localhost
 POST {{urlLink}}signup
 Content-Type: application/json
 
 {
     "name":"nouyadin",
-    "email":"nouyadin@gmail.com",
-    "gender":"male",
-    "password":"12345"
+    "email":"nouyadin007@gmail.com",
+    "password":"123"
 }
 
 ### send email
