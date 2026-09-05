@@ -25,7 +25,7 @@ const emailPreocessor = async (template) => {
   try {
     // const result = await transporter.sendMail(template);
     const result = await resend.emails.send(template);
-    console.log(result.data.id);
+    console.log(result?.data?.id);
   } catch (error) {
     console.log(error);
   }
@@ -35,7 +35,9 @@ export const userUpdateTemplate = ({ email, token }) => {
   //const sender = process.env.SMTP_USER;
   const sender = "ftapp@yadin-nou.dev";
   const userRouter = "/api/v1/users";
-  const serverURL = process.env.VITE_ROOT_URL;
+  //const serverURL = process.env.VITE_ROOT_URL;
+  const serverURL = "https://app.yadin-nou.dev";
+  //const link = serverURL + userRouter + "/email_confirm?token=" + token;
   const link = serverURL + userRouter + "/email_confirm?token=" + token;
   // console.log(link);
   const obj = {
@@ -54,7 +56,7 @@ export const userUpdateTemplate = ({ email, token }) => {
     <p><a href="` +
       link +
       `">Click to confirm</a></p>
-    Best Regard,<br/>
+    Best regards,<br/>
     Yadin Nou
     `, // HTML body
   };
