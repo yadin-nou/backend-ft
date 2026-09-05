@@ -45,7 +45,7 @@ POST {{urlLink}}signup
 Content-Type: application/json
 
 {
-    "name":"nouyadin",
+    "name":"Yadin",
     "email":"nouyadin007@gmail.com",
     "password":"123"
 }
