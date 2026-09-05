@@ -24,8 +24,8 @@ const resend = new Resend(apiKey);
 const emailPreocessor = async (template) => {
   try {
     // const result = await transporter.sendMail(template);
-    await resend.emails.send(template);
-    //console.log(result);
+    const result = await resend.emails.send(template);
+    console.log(result.data.id);
   } catch (error) {
     console.log(error);
   }
