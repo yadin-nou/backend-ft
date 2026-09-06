@@ -31,7 +31,7 @@ const emailPreocessor = async (template) => {
   }
 };
 //create the emial processor send out the email
-export const userUpdateTemplate = ({ email, token }) => {
+export const userUpdateTemplate = ({ name, email, token }) => {
   //const sender = process.env.SMTP_USER;
   const sender = "ftapp@yadin-nou.dev";
   const userRouter = "/api/v1/users";
@@ -45,20 +45,24 @@ export const userUpdateTemplate = ({ email, token }) => {
     // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
     from: "Financial Tracker App <" + sender + ">",
     to: email, // list of recipients
-    subject: "Welcome to Financial Tracker App", // subject line
+    subject: "Confirm your Financial Tracker App account", // subject line
     text: `Thanks for signing up. 
     Your account has been created successfully, 
     and you're all set to get started`, // plain text body
     html:
-      `<p>Thanks for signing up. 
-    Your account has been created successfully, 
-    and you're all set to get started.</p>
-    <h5>Please confirm email</h5>
+      `
+      Hi ${name},
+      <p>Thanks for creating a Financial Tracker App account with this email address (${email}).</p>
+    <p>To finish setting up your account, please confirm your email:</p>
     <p><a href="` +
       link +
-      `">Click to confirm</a></p>
-    Best regards,<br/>
-    Yadin Nou
+      `">Confirm my account</a><br/>
+      If you didn't sign up for Financial Tracker App, you can safely ignore this email — no account will be created.
+
+      </p>
+   Thanks,<br/>
+The Financial Tracker App Team<br/>
+yadin-nou.dev<br/>
     `, // HTML body
   };
   //console.log(link);
