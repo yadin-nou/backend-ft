@@ -1,4 +1,4 @@
-app = 'financial-tracker-backend'
+app = 'backend-ft'
 primary_region = 'syd'
 
 [build]
