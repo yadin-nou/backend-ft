@@ -48,7 +48,7 @@ export const userUpdateTemplate = ({ name, email, token }) => {
     subject: "Confirm your Financial Tracker App account", // subject line
     text: `Thanks for signing up. 
     Your account has been created successfully, 
-    and you're all set to get started`, // plain text body
+    and you're all set to get started, after confirming your email.`, // plain text body
     html:
       `
       Hi ${name},
@@ -57,7 +57,7 @@ export const userUpdateTemplate = ({ name, email, token }) => {
     <p><a href="` +
       link +
       `">Confirm my account</a><br/>
-      
+
       If you didn't sign up for Financial Tracker App, you can safely ignore this email — no account will be created.
 
       </p>
