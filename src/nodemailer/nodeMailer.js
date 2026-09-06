@@ -57,6 +57,7 @@ export const userUpdateTemplate = ({ name, email, token }) => {
     <p><a href="` +
       link +
       `">Confirm my account</a><br/>
+      
       If you didn't sign up for Financial Tracker App, you can safely ignore this email — no account will be created.
 
       </p>
