@@ -36,8 +36,9 @@ export const userUpdateTemplate = ({ email, token }) => {
   const sender = "ftapp@yadin-nou.dev";
   const userRouter = "/api/v1/users";
   //const serverURL = process.env.VITE_ROOT_URL;
-  const serverURL = "https://app.yadin-nou.dev";
+  const serverURL = process.env.VITE_REACT_URL;
   //const link = serverURL + userRouter + "/email_confirm?token=" + token;
+  //THE LINK SEND TO FRONT END
   const link = serverURL + "/email_confirm?token=" + token;
   // console.log(link);
   const obj = {
@@ -60,6 +61,6 @@ export const userUpdateTemplate = ({ email, token }) => {
     Yadin Nou
     `, // HTML body
   };
-
+  //console.log(link);
   emailPreocessor(obj);
 };

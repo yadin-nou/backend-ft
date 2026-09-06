@@ -36,13 +36,13 @@ userRouter.get("/email_confirm", async (req, res, next) => {
   user.save();
   //console.log(user);
   res.send(`
-  <html>
-    <body style="font-family: Arial, sans-serif; text-align:center; padding: 60px;">
-      <h2>Your email has been verified!</h2>
-      <p>Please <a href="${link}" style="color:#4f46e5;">log in</a> to continue.</p>
-    </body>
-  </html>
-`);
+    <html>
+      <body style="font-family: Arial, sans-serif; text-align:center; padding: 60px;">
+        <h2 style='color:green'>Your email has been verified!</h2>
+        <p>Please <a href="${link}" style="color:#4f46e5;">log in</a> to continue.</p>
+      </body>
+    </html>
+  `);
 });
 
 //user Signup
