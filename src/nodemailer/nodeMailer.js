@@ -36,7 +36,7 @@ export const userUpdateTemplate = ({ email, token }) => {
   const sender = "ftapp@yadin-nou.dev";
   const userRouter = "/api/v1/users";
   //const serverURL = process.env.VITE_ROOT_URL;
-  const serverURL = process.env.VITE_REACT_URL;
+  const serverURL = process.env.VITE_EMAIL_CONFIRM;
   //const link = serverURL + userRouter + "/email_confirm?token=" + token;
   //THE LINK SEND TO FRONT END
   const link = serverURL + "/email_confirm?token=" + token;
