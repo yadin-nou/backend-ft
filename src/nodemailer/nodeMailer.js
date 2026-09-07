@@ -40,7 +40,7 @@ export const userUpdateTemplate = ({ name, email, token }) => {
   //const link = serverURL + userRouter + "/email_confirm?token=" + token;
   //THE LINK SEND TO FRONT END
   const link = serverURL + "/email_confirm?token=" + token;
-  // console.log(link);
+  //console.log(link);
   const obj = {
     // from: '"Yadin" <giovani.willms@ethereal.email>', // sender address
     from: "Financial Tracker App <" + sender + ">",

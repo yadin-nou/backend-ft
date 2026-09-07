@@ -58,6 +58,15 @@ Content-Type: application/json
     "to":"yadin@gmail.com"
 }
 
+### Resend email
+POST {{urlLink}}resendEmail
+Content-Type: application/json
+
+{
+    "email":"nouyadin@hotmail.com",
+    "name":"yadin",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cC"
+}
 ### Transaction section
 
 ### POST to add transaction

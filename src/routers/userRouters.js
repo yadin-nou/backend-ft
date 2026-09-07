@@ -52,8 +52,9 @@ userRouter.get("/email_confirm", async (req, res, next) => {
 });
 
 //Resend Email
-userRouter.get("/resendEmail", (req, res, next) => {
+userRouter.post("/resendEmail", (req, res, next) => {
   try {
+    //console.log(req.body);
     userUpdateTemplate(req.body);
     res.json({
       status: "success",
