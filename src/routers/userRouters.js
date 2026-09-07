@@ -15,27 +15,30 @@ const link = process.env.VITE_REACT_URL + "/login";
 //console.log(link);
 //user confirmation
 userRouter.get("/email_confirm", async (req, res, next) => {
-  const { token } = req.query;
-  if (!token) {
-    return res
-      .status(400)
-      .json({ status: "error", message: "No token provided" });
-  }
-  const user = await confirmEmail(token);
-  if (!user) {
-    return res
-      .status(400)
-      .json({ status: "error", message: "Invalid or already used" });
-  }
-  if (user.tokenExpire < Date.now()) {
-    return res.status(400).json({ status: "error", message: "Token Expired" });
-  }
-  user.isConfirm = true;
-  user.token = "undefined";
-  // save() is update to db not insert because user recived from confirmEmail by fineOne()
-  user.save();
-  //console.log(user);
-  res.send(`
+  try {
+    const { token } = req.query;
+    if (!token) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "No token provided" });
+    }
+    const user = await confirmEmail(token);
+    if (!user) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Invalid or already used" });
+    }
+    if (user.tokenExpire < Date.now()) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Token Expired" });
+    }
+    user.isConfirm = true;
+    user.token = "undefined";
+    // save() is update to db not insert because user recived from confirmEmail by fineOne()
+    user.save();
+    //console.log(user);
+    res.send(`
     <html>
       <body style="font-family: Arial, sans-serif; text-align:center; padding: 60px;">
         <h2 style='color:green'>Your email has been verified!</h2>
@@ -43,6 +46,22 @@ userRouter.get("/email_confirm", async (req, res, next) => {
       </body>
     </html>
   `);
+  } catch (error) {
+    next(error);
+  }
+});
+
+//Resend Email
+userRouter.get("/resendEmail", (req, res, next) => {
+  try {
+    userUpdateTemplate(req.body);
+    res.json({
+      status: "success",
+      message: "Resent successfully!, Please check your email again.",
+    });
+  } catch (error) {
+    next(error);
+  }
 });
 
 //user Signup
@@ -56,12 +75,15 @@ userRouter.post("/signup", async (req, res, next) => {
     // console.log(req.body, " userRouter.js");
     const result = await insertUser(req.body);
     if (result?._id) {
+      req.body.password = undefined;
+      req.body.cmpassword = undefined;
       res.json({
         status: "success",
         message:
           "Account has been created, Please check your email to confirm!",
+        emailData: req.body,
       });
-      req.body.password = undefined;
+
       // console.log(req.body);
       userUpdateTemplate(req.body);
     } else {
