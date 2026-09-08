@@ -69,29 +69,68 @@ userRouter.post("/resendEmail", (req, res, next) => {
 userRouter.post("/signup", async (req, res, next) => {
   try {
     const { email } = req.body;
+    // console.log(email);
     req.body.password = pwdHashEncrypt(req.body.password);
     req.body.token = signJWT({ email });
     //date expired next day
     req.body.tokenExpire = Date.now() + 24 * 60 * 60 * 1000;
     // console.log(req.body, " userRouter.js");
-    const result = await insertUser(req.body);
-    if (result?._id) {
-      req.body.password = undefined;
-      req.body.cmpassword = undefined;
-      res.json({
-        status: "success",
-        message:
-          "Account has been created, Please check your email to confirm!",
-        emailData: req.body,
-      });
+    const checkEmail = await loginUserByEmail(email);
+    if (checkEmail) {
+      // if email exist in DB
+      if (checkEmail.isConfirm) {
+        const result = await insertUser(req.body);
+        if (result?._id) {
+          req.body.password = undefined;
+          req.body.cmpassword = undefined;
+          res.json({
+            status: "success",
+            message:
+              "Account has been created, Please check your email to confirm!",
+            emailData: req.body,
+          });
 
-      // console.log(req.body);
-      userUpdateTemplate(req.body);
+          // console.log(req.body);
+          userUpdateTemplate(req.body);
+        } else {
+          res.json({
+            status: "error",
+            message: error.message,
+          });
+        }
+      } else {
+        req.body.password = undefined;
+        req.body.cmpassword = undefined;
+        req.body.token = checkEmail.token;
+        req.body.name = checkEmail.name;
+        userUpdateTemplate(req.body);
+        res.json({
+          status: "success",
+          message: "Please check your email to ACTIVATE your account!",
+          emailData: req.body,
+        });
+      }
     } else {
-      res.json({
-        status: "error",
-        message: error.message,
-      });
+      // email not exist in DB
+      const result = await insertUser(req.body);
+      if (result?._id) {
+        req.body.password = undefined;
+        req.body.cmpassword = undefined;
+        res.json({
+          status: "success",
+          message:
+            "Account has been created, Please check your email to confirm!",
+          emailData: req.body,
+        });
+
+        // console.log(req.body);
+        userUpdateTemplate(req.body);
+      } else {
+        res.json({
+          status: "error",
+          message: error.message,
+        });
+      }
     }
   } catch (error) {
     if (error.code === 11000) {

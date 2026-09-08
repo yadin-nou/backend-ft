@@ -31,6 +31,8 @@ This project is build with React JS, Node.js+express.js, MongoDB and deployed vi
 - ## **Frontend**:
   - React JS
   - Contact API
+  - Redux
+  - Resend
   - Bootstrap in React
   - React-Toastify
   - React-icon
