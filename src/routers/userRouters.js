@@ -69,15 +69,19 @@ userRouter.post("/resendEmail", (req, res, next) => {
 userRouter.post("/signup", async (req, res, next) => {
   try {
     const { email } = req.body;
+    const passHash = pwdHashEncrypt(req.body.password);
+    const tokenData = signJWT({ email });
+    const tokenExp = Date.now() + 24 * 60 * 60 * 1000;
     // console.log(email);
-    req.body.password = pwdHashEncrypt(req.body.password);
-    req.body.token = signJWT({ email });
+    req.body.password = passHash;
+    req.body.token = tokenData;
     //date expired next day
-    req.body.tokenExpire = Date.now() + 24 * 60 * 60 * 1000;
+    req.body.tokenExpire = tokenExp;
     // console.log(req.body, " userRouter.js");
     const checkEmail = await loginUserByEmail(email);
     if (checkEmail) {
       // if email exist in DB
+      //isConfirm is true
       if (checkEmail.isConfirm) {
         const result = await insertUser(req.body);
         if (result?._id) {
@@ -99,16 +103,33 @@ userRouter.post("/signup", async (req, res, next) => {
           });
         }
       } else {
-        req.body.password = undefined;
-        req.body.cmpassword = undefined;
-        req.body.token = checkEmail.token;
-        req.body.name = checkEmail.name;
-        userUpdateTemplate(req.body);
-        res.json({
-          status: "success",
-          message: "Please check your email to ACTIVATE your account!",
-          emailData: req.body,
-        });
+        //will check tokenExpire
+        if (checkEmail.tokenExpire < Date().now()) {
+          checkEmail.token = tokenData;
+          checkEmail.tokenExpire = tokenExp;
+          req.body.password = undefined;
+          req.body.cmpassword = undefined;
+          req.body.token = checkEmail.token;
+          await checkEmail.save();
+          userUpdateTemplate(req.body);
+          res.json({
+            status: "success",
+            message: "Please check your email to ACTIVATE your account!",
+            emailData: req.body,
+          });
+        } else {
+          //else not expire execute code below
+          req.body.password = undefined;
+          req.body.cmpassword = undefined;
+          req.body.token = checkEmail.token;
+          req.body.name = checkEmail.name;
+          userUpdateTemplate(req.body);
+          res.json({
+            status: "success",
+            message: "Please check your email to ACTIVATE your account!",
+            emailData: req.body,
+          });
+        }
       }
     } else {
       // email not exist in DB
