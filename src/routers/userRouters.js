@@ -96,7 +96,6 @@ userRouter.post("/signup", async (req, res, next) => {
             emailData: req.body,
           });
 
-          // console.log(req.body);
           userUpdateTemplate(req.body);
         } else {
           res.json({
@@ -105,7 +104,6 @@ userRouter.post("/signup", async (req, res, next) => {
           });
         }
       } else {
-        // console.log("isConfirm is false");
         //will check tokenExpire
         if (checkEmail.tokenExpire < Date.now()) {
           checkEmail.token = tokenData;
@@ -120,7 +118,6 @@ userRouter.post("/signup", async (req, res, next) => {
             message: "Please check your email to ACTIVATE your account!",
             emailData: req.body,
           });
-          //console.log("token expired", req.body);
         } else {
           //else not expire execute code below
           req.body.password = undefined;
@@ -133,7 +130,6 @@ userRouter.post("/signup", async (req, res, next) => {
             message: "Please check your email to ACTIVATE your account!",
             emailData: req.body,
           });
-          // console.log(req.body, "token not expired");
         }
       }
     } else {
