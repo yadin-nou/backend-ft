@@ -110,25 +110,27 @@ userRouter.post("/signup", async (req, res, next) => {
           req.body.password = undefined;
           req.body.cmpassword = undefined;
           req.body.token = checkEmail.token;
-          await checkEmail.save();
-          userUpdateTemplate(req.body);
-          res.json({
-            status: "success",
-            message: "Please check your email to ACTIVATE your account!",
-            emailData: req.body,
-          });
+          // await checkEmail.save();
+          // userUpdateTemplate(req.body);
+          // res.json({
+          //   status: "success",
+          //   message: "Please check your email to ACTIVATE your account!",
+          //   emailData: req.body,
+          // });
+          console.log("token expired", req.body);
         } else {
           //else not expire execute code below
-          req.body.password = undefined;
-          req.body.cmpassword = undefined;
-          req.body.token = checkEmail.token;
-          req.body.name = checkEmail.name;
-          userUpdateTemplate(req.body);
-          res.json({
-            status: "success",
-            message: "Please check your email to ACTIVATE your account!",
-            emailData: req.body,
-          });
+          // req.body.password = undefined;
+          // req.body.cmpassword = undefined;
+          // req.body.token = checkEmail.token;
+          // req.body.name = checkEmail.name;
+          // userUpdateTemplate(req.body);
+          // res.json({
+          //   status: "success",
+          //   message: "Please check your email to ACTIVATE your account!",
+          //   emailData: req.body,
+          // });
+          console.log(req.body, "token not expired");
         }
       }
     } else {
