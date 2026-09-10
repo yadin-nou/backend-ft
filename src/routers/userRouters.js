@@ -115,11 +115,11 @@ userRouter.post("/signup", async (req, res, next) => {
           userUpdateTemplate(req.body);
           res.json({
             status: "success",
-            message: "Please check your email to ACTIVATE your account!",
+            message: "Your email need to ACTIVATE, please check ur email!",
             emailData: req.body,
           });
         } else {
-          //else not expire execute code below
+          //if token not expire ,run code below
           req.body.password = undefined;
           req.body.cmpassword = undefined;
           req.body.token = checkEmail.token;
@@ -127,7 +127,7 @@ userRouter.post("/signup", async (req, res, next) => {
           userUpdateTemplate(req.body);
           res.json({
             status: "success",
-            message: "Please check your email to ACTIVATE your account!",
+            message: "Your email need to ACTIVATE, please check ur email!",
             emailData: req.body,
           });
         }

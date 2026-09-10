@@ -32,7 +32,7 @@ This project is build with React JS, Node.js+express.js, MongoDB and deployed vi
   - React JS
   - Contact API
   - Redux
-  - Resend
+  - Resend or Nodemailer
   - Bootstrap in React
   - React-Toastify
   - React-icon
@@ -159,13 +159,22 @@ FT Backend
 |-- src
 | |-- config
 | | |-- db.config.js
+| |-- midlewares
+| | |-- authMiddleware.js
+| | |-- errorMiddleware.js
 | |-- models
 | | |-- userModel.js
 | | |-- userSchema.js
+| | |-- transactionModel.js
+| | |-- transactionSchema.js
+ |-- nodemailer
+| | |-nodeMailer.js
 | |-- router
 | | |-userRouter.js
+| | |-transactionRouter.js
 | |-- utils
 | | |-pwdHashEncryption.js
+| | |-jwt.js
 ```
 
 ```
