@@ -167,7 +167,7 @@ FT Backend
 | | |-- userSchema.js
 | | |-- transactionModel.js
 | | |-- transactionSchema.js
- |-- nodemailer
+| |-- nodemailer
 | | |-nodeMailer.js
 | |-- router
 | | |-userRouter.js
@@ -175,6 +175,10 @@ FT Backend
 | |-- utils
 | | |-pwdHashEncryption.js
 | | |-jwt.js
+|--rest.http
+|--server.js
+|--.env
+
 ```
 
 ```
@@ -182,21 +186,46 @@ FT Frontend
 |-- public
 |-- src
 | |-- assets
-| | |--
+| | |--img
+| |-- auth
+| | |--Auth.js
 | |-- axiosHelper
 | | |-- axiosConnection.js
 | |-- component
+| | |--confirmEmail.jsx
+| | |--DashbaordLayout.jsx
+| | |--FormTemplate.jsx
+| | |--InfomationLayout.jsx
+| | |--LineChartLayout.jsx
+| | |--LoginFormLayout.jsx
+| | |--PieChartLayout.jsx
+| | |--TipContent.jsx
+| | |--Transaction.jsx
+| | |--TransactionTable.jsx
+| | |--UserForm.jsx
 | | |--Layout
 | | | |--FormTempalte.jsx
 | | | |--LoginFormLayout.jsx
 | | | |--TipContext.jsx
 | | | |--UserForms.jsx
+| |-- context
+| | |--userContext.js
 | |-- hooks
 | | |--useFormHook.js
+| | |--useSpinner.js
 | |-- pages
 | | |--LoginPage.js
 | | |--SignUp.js
-
+| | |--Dashboard.js
+| | |--TransactionPage.js
+| |-- redux
+| | |--reduxGetTransaction.js
+| | |--storeTrans.js
+| | |--transactionSlicer.js
+| |-- utils
+| | |--users.js
+|--App.jsx
+|--main.jsx
 ```
 
 ## Contributing
