@@ -2,7 +2,7 @@
 
 This project is about the Financial Tracker to users who spend money every day. This will show every transaction of their expense and growing base on date. In addition, users are able to delete their translation. Users can view the Link graph based on their income, net worth and expense base on date.
 
-![Websute Screenshort]()
+![Websute Screenshort](./src/ft-tracker.png)
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ This project is about the Financial Tracker to users who spend money every day. 
 
 This project is build with React JS, Node.js+express.js, MongoDB and deployed via GitHub.
 
-[Visit Live Website](#)
+[Visit Live Website](https://finance-tracker-nine-smoky.vercel.app)
 
 ## Featuers
 
@@ -123,11 +123,20 @@ To set up this project in your device locally, please follow the steps:
 
 ## API Endpoints
 
-    List all the api Endpoint you are going to have
+- USER Endpoint
+  - /api/v1/users/email_confirm as Get
+  - /api/v1/users/resendEmail as Post
+  - /api/v1/users/signup as Post
+  - /api/v1/users/login as Post
+  - /api/v1/users/ as Get
+- Transaction Endpoints
+  - /api/v1/transaction/ as Post
+  - /api/v1/transaction/ as Get
+  - /api/v1/transaction/ as Delete
 
 ## Enviroment Variables
 
-Create a .env file in the root fo your project and add the following environment variables:
+Environment variables is added t server.
 
 ## Project Workflow
 
