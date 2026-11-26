@@ -24,6 +24,12 @@ This project is build with React JS, Node.js+express.js, MongoDB and deployed vi
 
 ## Featuers
 
+- Transaction management: add, view, and delete transactions
+- Reports and charts: visual summaries of spending using Recharts
+- Authentication: signup and login with JWT-based security
+- Email confirmation: a signup confirmation link sent via Resend, with expiry handling, - - automatic token regeneration, and a resend button with a 2-minute countdown
+- State management: Redux for shared app state
+- Deployment: frontend on Vercel (custom domain), backend on Render, and database on MongoDB Atlas
 - **Responsive Design**:
 
 ## Technologies used
@@ -87,6 +93,10 @@ To set up this project in your device locally, please follow the steps:
       > ```
       > yarn add morgan
       > ```
+      >
+      > ```
+      > yarn add jsonwebtoken
+      > ```
     - ### Frontend
       > ```
       > yarn add axios
@@ -106,10 +116,6 @@ To set up this project in your device locally, please follow the steps:
       >
       > ```
       > yarn add rect-router-dom
-      > ```
-      >
-      > ```
-      > yarn add jsonwebtoken
       > ```
 4.  **Run the development server**:
     > ```
